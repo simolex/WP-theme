@@ -4,10 +4,13 @@ add_action('wp_footer', 'sparrow_scripts');
 
 function sparrow_styles()
 {
+   //wp_enqueue_script('init', get_template_directory_uri() . '/assets/js/modernizr.js', [], false, false);
+
    wp_enqueue_style('style', get_stylesheet_uri());
    wp_enqueue_style('style-default', get_template_directory_uri() . "/assets/css/default.css");
    wp_enqueue_style('style-layout', get_template_directory_uri() . "/assets/css/layout.css");
    wp_enqueue_style('style-media', get_template_directory_uri() . "/assets/css/media-queries.css");
+   //header
 }
 
 function sparrow_scripts()
