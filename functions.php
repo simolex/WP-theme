@@ -2,6 +2,8 @@
 add_action('wp_enqueue_scripts', 'sparrow_styles');
 add_action('wp_footer', 'sparrow_scripts');
 add_action( 'after_setup_theme', 'sparrow_register_nav_menu' );
+add_action( 'widgets_init', 'register_sparrow_widgets' );
+
 
 
 
@@ -31,4 +33,18 @@ function sparrow_scripts()
 function sparrow_register_nav_menu() {
 	register_nav_menu( 'top', 'Главное меню' );
 	register_nav_menu( 'bottom', 'Нижнееее меню' );
+}
+
+function register_sparrow_widgets(){
+	register_sidebar( array(
+		'name'          => 'Right sidebar',
+		'id'            => "right_sidebar",
+		'description'   => 'Описание сайдбара',
+		 'before_widget' => '<div class="widget %2$s">',
+		 'after_widget'  => "</div>\n",
+		 'before_title'  => '<h5 class="widget-title">',
+		 'after_title'   => "</h5>\n",
+		'before_sidebar' => '', // WP 5.6
+		'after_sidebar'  => '', // WP 5.6
+	) );
 }
